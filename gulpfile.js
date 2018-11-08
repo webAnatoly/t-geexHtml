@@ -9,7 +9,6 @@ const gulp = require('gulp'),
       browserSync = require('browser-sync').create(),
       del = require('del'),
       gulpIf = require('gulp-if'),
-      // debug = require('gulp-debug'),
       notify = require('gulp-notify'),
       multipipe = require('multipipe');
 
@@ -40,8 +39,8 @@ gulp.task('clean', function () {
 });
 
 gulp.task('assets', function() {
-  return gulp.src('frontend/img/**/*.*', { since: gulp.lastRun('assets') })
-    .pipe(gulp.dest('public/img'));
+  return gulp.src('frontend/assets/**/*.*', { since: gulp.lastRun('assets') })
+    .pipe(gulp.dest('public/assets'));
 });
 
 gulp.task('html', () => {
@@ -56,7 +55,7 @@ gulp.task('build', gulp.series(
 
 gulp.task('watch', () => {
   gulp.watch('frontend/scss/**/*.*', gulp.series('styles'));
-  gulp.watch('frontend/img/**/*.*', gulp.series('assets'));
+  gulp.watch('frontend/assets/**/*.*', gulp.series('assets'));
   gulp.watch('frontend/**/*.html', gulp.series('html'));
 });
 
