@@ -22,9 +22,7 @@
 
   &__link {
     font-family: "Futura PT Medium", $font-futura-callback;
-    line-height: 2.5rem;
-    letter-spacing: .4rem;
-    text-transform: uppercase;
+    @include font-style-1;
   }
 
 }

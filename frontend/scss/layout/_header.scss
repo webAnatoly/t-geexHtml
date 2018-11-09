@@ -1,27 +1,28 @@
 .header {
   padding: 4.7rem 10rem;
 
-  @media only screen and (max-width: 93.75em) { // 1500 / 16 = 93.75
-    padding: 4.7rem 8rem;
-  }
-  @media only screen and (max-width: 78.12em) { // 1250 / 16 = 78.125
-    padding: 2.7rem 2rem;
-  }
+  @media only screen and (max-width: 93.75em) { padding: 4.7rem 8rem; } // 1500 / 16 = 93.75
+  @media only screen and (max-width: 78.12em) { padding: 2.5rem 2rem; } // 1250 / 16 = 78.125
 
   &__menu-container {
     height: 2.5rem;
     width: 67.28rem;
-    border: 1px solid green;
 
     // ширина меню-контейнера невидима, но налезает на логотип при респонсиве, поэтому решил её тоже менять
-    @media only screen and (max-width: 101.25em) { // 1620 / 16 = 101.25
-      width: 54rem;
-    }
-    @media only screen and (max-width: 81.25em) { // 1300 / 16 = 81.25
-      width: 45rem;
-    }
-    @media only screen and (max-width: 62.5em) { // 1000 / 16 = 62.5
-      width: 100%;
+    @media only screen and (max-width: 101.25em) { width: 54rem; } // 1620 / 16 = 101.25
+    @media only screen and (max-width: 81.25em) { width: 47rem; } // 1300 / 16 = 81.25
+    @media only screen and (max-width: 62.5em) { width: 100%; } // 1000 / 16 = 62.5
+
+    &-mobile {
+
+      & > a {
+        font-family: "Futura PT Medium", $font-futura-callback;
+        @include font-style-1;
+      }
+
+      @media only screen and (min-width: 62.5em) { // 1000 / 16 = 62.5
+        display: none; // скрывать кнопку "меню" в десктопе
+      }
     }
   }
 
@@ -49,9 +50,13 @@
 
     &__text {
       display: inline-block;
-      text-align: left;
-      border: 1px solid red;
+      text-align: left;;
       width: 6.1rem;
+
+      @media only screen and (max-width: 62.5em) { // 1000 / 16 = 62.5
+        text-align: right;
+        width: 5rem;
+      }
     }
 
     &__digit {
@@ -60,16 +65,27 @@
       font-family: "Futura PT Medium", $font-futura-callback;
       font-size: 1.1rem;
 
+      @media only screen and (max-width: 62.5em) { // 1000 / 16 = 62.5
+        &:before { content: '('; }
+        &:after { content: ')'; }
+      }
+
       &:after {
-        content:'';
-        height: 3.2rem;
-        width: 3.2rem;
-        border-radius: 50%;
-        top: -.31rem;
-        left: -1.3rem;
-        position: absolute;
+        // круг вокруг цифры начать показывать с ширины 1000px
+        @media only screen and (min-width: 62.5em) { // 1000 / 16 = 62.5
+          content:'';
+          height: 3.2rem;
+          width: 3.2rem;
+          border-radius: 50%;
+          top: -.4rem;
+          left: -1.3rem;
+          position: absolute;
+          border: 1px solid black; 
         border: 1px solid black;
+          border: 1px solid black; 
+        }
       }
     }
   }
+
 }
