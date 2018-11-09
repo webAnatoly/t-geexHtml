@@ -30,11 +30,28 @@
     text-align: right;
 
     &__text {
+      display: inline-block;
+      text-align: left;
       border: 1px solid red;
+      width: 6.1rem;
     }
 
     &__digit {
-      
+      position: relative;
+      display: inline-block;
+      font-family: "Futura PT Medium", $font-futura-callback;
+      font-size: 1.1rem;
+
+      &:after {
+        content:'';
+        height: 3.2rem;
+        width: 3.2rem;
+        border-radius: 50%;
+        top: -.31rem;
+        left: -1.3rem;
+        position: absolute;
+        border: 1px solid black;
+      }
     }
   }
 }
