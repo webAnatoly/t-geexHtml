@@ -4,9 +4,20 @@
     list-style: none;
   }
 
+  @media only screen and (max-width: 62.5em) { // 1000 / 16 = 62.5
+    display: none;
+  }
+
   &__item {
     display: inline-block;
     margin-right: 5.5rem;
+
+    @media only screen and (max-width: 101.25em) { // 1620 / 16 = 101.25
+      margin-right: 2.5rem;
+    }
+    @media only screen and (max-width: 81.25em) { // 1300 / 16 = 81.25
+      margin-right: 1.5rem;
+    }
   }
 
   &__link {
