@@ -1,0 +1,19 @@
+.nav {
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: 5.5rem;
+  }
+
+  &__link {
+    font-family: "Futura PT Medium", $font-futura-callback;
+    line-height: 2.5rem;
+    letter-spacing: .4rem;
+    text-transform: uppercase;
+  }
+
+}

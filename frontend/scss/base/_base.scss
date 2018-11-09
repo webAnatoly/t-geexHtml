@@ -22,7 +22,15 @@ html {
   box-sizing: border-box;
 }
 
-.container {
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: $color-dark-2;
+  outline: 0;
+}
+
+.wrapper {
   width: 168rem;
   min-height: 100rem;
   margin: auto;
