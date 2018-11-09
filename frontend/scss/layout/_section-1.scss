@@ -8,5 +8,61 @@
     min-height: 45rem;
     margin-top: 25.95rem;
     margin-left: 15rem;
+
+    &__text {
+      line-height: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    &__pick {
+
+      & .pick-color {
+        display: inline-block;
+        width: 30.12rem;
+        height: 3rem;
+        border-bottom: 1px solid $color-dark-1;
+        padding: 0 1.3rem;
+        position: relative;
+
+        &__text {
+          font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
+          font-size: 1.2rem;
+          line-height: 2.6rem;
+          letter-spacing: .4rem;
+          text-transform: uppercase;
+        }
+
+        &__triangle-btn {
+          display: inline-block;
+          border-right: 1px solid $color-dark-1;
+          border-bottom: 1px solid $color-dark-1;
+          width: .83rem;
+          height: .83rem;
+          transform: rotate(45deg);
+          background-color: transparent;
+          position: absolute;
+          right: 1.3rem;
+          bottom: 1rem;
+
+          &:hover { cursor: pointer }
+        }
+
+        &__counter {
+          display: inline-block;
+          transform: translateX(6rem);
+
+          & span {
+            font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    &__btn {
+      margin-top: 4rem;
+      margin-left: 5.4rem;
+    }
   }
 }

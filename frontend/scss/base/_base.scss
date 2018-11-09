@@ -30,6 +30,10 @@ a:visited {
   outline: 0;
 }
 
+button:focus { outline: 0; }
+button:hover { cursor: pointer; }
+button::-moz-focus-inner { outline: 0; border: 0;}
+
 .wrapper {
   width: 168rem;
   min-height: 100rem;
