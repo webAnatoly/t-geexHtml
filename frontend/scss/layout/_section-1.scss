@@ -1,0 +1,12 @@
+.section-1 {
+  border: 1px solid blue;
+  height: 95.7rem;
+
+  &__main {
+    border: 1px solid red;
+    width: 45rem;
+    min-height: 45rem;
+    margin-top: 25.95rem;
+    margin-left: 15rem;
+  }
+}
