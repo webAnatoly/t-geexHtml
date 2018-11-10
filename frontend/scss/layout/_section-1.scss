@@ -1,6 +1,19 @@
 .section-1 {
   border: 1px solid blue;
   height: 95.7rem;
+  position: relative;
+
+  &::before { // через псевдоэлемент вставил фоновый ресунок, чтобы фильтр можно было применить
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 114.2rem;
+    height: 95.8rem;
+    background-image: url(./../assets/img/png/rectangle_4.png);
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+  }
 
   &__main {
     border: 1px solid red;
@@ -8,6 +21,8 @@
     min-height: 45rem;
     margin-top: 25.95rem;
     margin-left: 15rem;
+    position: relative;
+    z-index: 1;
 
     &__text {
       line-height: 2.5rem;
@@ -64,5 +79,15 @@
       margin-top: 4rem;
       margin-left: 5.4rem;
     }
+  }
+
+  &__decorator {
+    position: absolute;
+    width: 114.2rem;
+    height: 86.42rem;
+    left: 5rem;
+    top: 4.63rem;
+    background-color: rgba($color-brown-1, .9);
+    z-index: -20;
   }
 }
