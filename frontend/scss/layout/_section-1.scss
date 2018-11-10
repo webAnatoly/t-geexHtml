@@ -167,15 +167,20 @@
   &__menu {
     border: 1px solid blue;
     width: 100%;
+    padding-top: 17rem;
 
     &__left {
       display: inline-block;
       border: 3px dashed green;
+      transform: translateX(14rem);
+
+      & button { margin-right: 5rem; }
     }
 
     &__right {
       display: inline-block;
       border: 3px dashed green;
+      transform: translateX(62.1rem);
     }
   }
 
