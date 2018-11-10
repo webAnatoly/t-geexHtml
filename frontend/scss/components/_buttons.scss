@@ -1,37 +1,63 @@
-// кнопка с двойной рамкой
-.btn {
-  font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
-  font-size: 1.2rem;
-  line-height: 2.6rem;
-  letter-spacing: .4rem;
-  text-transform: uppercase;
-  border: none;
-  background-color: transparent;
+.btn-double-border {
   position: relative;
+  width: 21.15rem;
+  height: 4.14rem;
+  text-align: center;
+
+  & > button {
+    font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
+    font-size: 1.2rem;
+    line-height: 2.6rem;
+    letter-spacing: .4rem;
+    text-transform: uppercase;
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: transparent;
+    transition: transform .2s;
+  }
 
   &::before {
     content: '';
+    display: block;
     width: 21.15rem;
     height: 4.14rem;
     border: 2px solid $color-dark-1;
     position: absolute;
-    top: -1.2rem;
-    left: -5.4rem;
+    top: -.5rem;
+    left: -.5rem;
+    transition: all .3s;
   }
 
   &::after {
     content: '';
+    display: block;
     width: 21.15rem;
     height: 4.14rem;
     border: 2px solid $color-dark-1;
     position: absolute;
-    top: -.3rem;
-    left: -4.75rem;
+    top: .6rem;
+    right: -.4rem;
+    transition: all .2s;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & > button { transform: scale(1.1); }
+
+    &::before {
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      top: 0;
+      right: 0;
+    }
   }
 }
 
-
-// круглая кнопка
 .btn-rounded {
   width: 3.54rem;
   height: 3.54rem;
