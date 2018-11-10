@@ -96,7 +96,7 @@
     }
 
     // декоративные линии для мобильной версии
-    @media only screen and (max-width: 25.8em) { // 414 / 16 = 25.8
+    @media only screen and (max-width: 25.8em) { // 414px / 16 = 25.8
       &::before {
         content:"";
         width:2px;
@@ -118,9 +118,15 @@
     }
   }
 
+  & .flex {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 9rem;
+  }
+
   &__right-block {
     position: relative;
-    transform: translate(12.2rem, 12rem);
+    transform: translateY(12rem);
     border: 1px solid red;
     width: 62rem;
     height: 64.97rem;
@@ -143,6 +149,8 @@
         color: $color-dark-1;
         text-transform: uppercase;
         display: block;
+        position: relative;
+        z-index: 20;
         border: 1px solid transparent;
         border-bottom: 1px solid transparent;
         outline: 0;
@@ -178,9 +186,12 @@
     }
 
     &__right {
-      display: inline-block;
+      display: flex;
+      justify-content: flex-end;
       border: 3px dashed green;
-      transform: translateX(62.1rem);
+      & button {
+        margin-right: 8.5rem;
+      }
     }
   }
 
