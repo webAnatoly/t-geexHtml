@@ -64,7 +64,16 @@
         </div>
       </div><!-- section-1__main -->
       <div class="section-1__right-block">
-        <img class="section-1__right-block__img" src="./assets/img/png/rectangle_5.png" alt="picture 5">
+        <picture class="section-1__right-block__picture">
+          <source srcset="./assets/img/png/rectangle_5.png 1x,
+                          ./assets/img/png/rectangle_5@2x.png 2x,
+                          ./assets/img/png/rectangle_5@3x.png 3x"
+                  media="(max-width: 37.5em)">
+          <img srcset="./assets/img/png/rectangle_5.png 1x,
+                       ./assets/img/png/rectangle_5@2x.png 2x,
+                       ./assets/img/png/rectangle_5@3x.png 3x"
+                src="./assets/img/png/rectangle_5@2x.png 2x" alt="picture 5">
+        </picture>
         <div class="section-1__right-block__menu">
           <button class="section-1__right-block__menu__button">img 001</button>
           <button class="section-1__right-block__menu__button section-1__right-block__menu__button--focused">img 002</button>

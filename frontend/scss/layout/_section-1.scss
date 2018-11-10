@@ -15,6 +15,16 @@
     background-repeat: no-repeat;
     background-size: 100% auto;
     filter: grayscale(100%);
+
+    // Для экранов с высоким разрешением и шириной больше 600px подгружаем 2x картинку.
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), // 600px / 16px = 37.5
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) { // для Safari
+      & { background-image: url(./../assets/img/png/rectangle_4@2x.png); }
+    }
+    // Для экранов шириной больше 2000px подгружаем 3x картинку.
+    @media only screen and (min-width: 125em) { // 2000px / 16px = 125
+      & { background-image: url(./../assets/img/png/rectangle_4@3x.png); }
+    }
   }
 
   &__main {
@@ -92,8 +102,8 @@
     height: 64.97rem;
     overflow: hidden;
 
-    &__img {
-
+    &__picture > img {
+      width: 42.23rem;
     }
 
     &__menu {
