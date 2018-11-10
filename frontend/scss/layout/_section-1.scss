@@ -1,6 +1,7 @@
 .section-1 {
   border: 1px solid blue;
   height: 95.7rem;
+  width: inherit;
   position: relative;
 
   &::before { // через псевдоэлемент вставил фоновый ресунок, чтобы фильтр можно было применить
@@ -12,6 +13,7 @@
     height: 95.8rem;
     background-image: url(./../assets/img/png/rectangle_4.png);
     background-repeat: no-repeat;
+    background-size: 100% auto;
     filter: grayscale(100%);
   }
 
@@ -78,6 +80,81 @@
     &__btn {
       margin-top: 4rem;
       margin-left: 5.4rem;
+    }
+  }
+
+  &__right-block {
+    position: absolute;
+    right: 10rem;
+    top: 13.09rem;
+    border: 1px solid red;
+    width: 62rem;
+    height: 64.97rem;
+    overflow: hidden;
+
+    &__img {
+
+    }
+
+    &__menu {
+      position: absolute;
+      top: 8.5rem;
+      right: 0;
+      border: 2px dashed blue;
+
+      &__button {
+        font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
+        font-size: 1rem;
+        letter-spacing: .4rem;
+        line-height: 2rem;
+        color: $color-dark-1;
+        text-transform: uppercase;
+        display: block;
+        border: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        outline: 0;
+        background-color: transparent;
+        width: 30rem;
+        height: 9.3rem;
+        text-align: right;
+        padding-top: 7rem;
+
+        &--focused {
+          border-bottom: 1px solid $color-dark-1;
+        }
+
+        &:hover {
+          border-bottom: 1px solid $color-dark-1;
+        }
+
+      }
+    }
+  }
+
+  &__menu {
+    border: 1px solid blue;
+    width: 100%;
+    position: absolute;
+    top: 83.69rem;
+    left: 0;
+    padding-left: 15rem;
+    padding-right: 10rem;
+    display: flex;
+    justify-content: space-between;
+
+    &__left {
+      display: inline-block;
+      border: 3px dashed red;
+
+      & > button {
+        margin-right: 6rem;
+      }
+    }
+
+    &__right {
+      display: inline-block;
+      text-align: right;
+      border: 3px dashed red;
     }
   }
 
