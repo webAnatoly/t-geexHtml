@@ -4,6 +4,9 @@
   width: inherit;
   position: relative;
 
+  // временные рамки
+  & .col-1-of-2 { border: 3px dashed red; }
+
   &::before { // через псевдоэлемент вставил фоновый ресунок, чтобы фильтр можно было применить
     content: "";
     position: absolute;
@@ -27,12 +30,12 @@
     }
   }
 
-  &__main {
+  &__left-block {
     border: 1px solid red;
     width: 45rem;
-    min-height: 45rem;
-    margin-top: 30rem;
-    margin-left: 14rem;
+    height: 45rem;
+    overflow: hidden;
+    transform: translate(14rem, 30rem);
     position: relative;
     z-index: 1;
 
@@ -91,12 +94,33 @@
       margin-top: 4rem;
       margin-left: .5rem;
     }
+
+    // декоративные линии для мобильной версии
+    @media only screen and (max-width: 25.8em) { // 414 / 16 = 25.8
+      &::before {
+        content:"";
+        width:2px;
+        height: 12.5rem;
+        border: 1px solid $color-dark-1;
+        position: absolute;
+        left: 50%;
+        top: -15rem;
+      }
+      &::after {
+        content:"";
+        width:2px;
+        height: 12.5rem;
+        border: 1px solid $color-dark-1;
+        position: absolute;
+        left: 50%;
+        bottom: -6rem;
+      }
+    }
   }
 
   &__right-block {
-    position: absolute;
-    right: 10rem;
-    top: 13.09rem;
+    position: relative;
+    transform: translate(12.2rem, 12rem);
     border: 1px solid red;
     width: 62rem;
     height: 64.97rem;
@@ -110,7 +134,6 @@
       position: absolute;
       top: 8.5rem;
       right: 0;
-      border: 2px dashed blue;
 
       &__button {
         font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
@@ -144,27 +167,15 @@
   &__menu {
     border: 1px solid blue;
     width: 100%;
-    position: absolute;
-    top: 83.69rem;
-    left: 0;
-    padding-left: 15rem;
-    padding-right: 10rem;
-    display: flex;
-    justify-content: space-between;
 
     &__left {
       display: inline-block;
-      border: 3px dashed red;
-
-      & > button {
-        margin-right: 6rem;
-      }
+      border: 3px dashed green;
     }
 
     &__right {
       display: inline-block;
-      text-align: right;
-      border: 3px dashed red;
+      border: 3px dashed green;
     }
   }
 
