@@ -4,6 +4,10 @@
   width: inherit;
   position: relative;
 
+  @media only screen and (max-width: 85em) { // 1360 / 16 = 85
+    height: 137rem;
+  }
+
   // временные рамки
   & .col-1-of-2 { border: 3px dashed red; }
 
@@ -16,7 +20,8 @@
     height: 95.8rem;
     background-image: url(./../assets/img/png/rectangle_4.png);
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    // background-size: 100% auto;
+    background-size: cover;
     filter: grayscale(100%);
 
     // Для экранов с высоким разрешением и шириной больше 600px подгружаем 2x картинку.
@@ -28,75 +33,31 @@
     @media only screen and (min-width: 125em) { // 2000px / 16px = 125
       & { background-image: url(./../assets/img/png/rectangle_4@3x.png); }
     }
+
+    // позиционирование фонового рисунка
+    @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+      width: 100%;
+      height: 65.66rem;
+      background-position: top 0 right 53vw;
+    }
   }
 
   &__left-block {
     border: 1px solid red;
     width: 45rem;
-    height: 45rem;
-    overflow: hidden;
+    min-height: 45rem;
     transform: translate(14rem, 30rem);
     position: relative;
     z-index: 1;
 
-    &__text {
-      line-height: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
+    @media only screen and (max-width: 85em) { // 1360 / 16 = 85
+      position: absolute;
+      transform: translate(0, 0);
+      top: 79rem;
+      left: calc((100vw / 2) - (45rem / 2));
+      text-align: center;
 
-    &__pick {
-
-      & .pick-color {
-        display: inline-block;
-        width: 30.12rem;
-        height: 3rem;
-        border-bottom: 1px solid $color-dark-1;
-        padding: 0 1.3rem;
-        position: relative;
-
-        &__text {
-          font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
-          font-size: 1.2rem;
-          line-height: 2.6rem;
-          letter-spacing: .4rem;
-          text-transform: uppercase;
-        }
-
-        &__triangle-btn {
-          display: inline-block;
-          border-right: 1px solid $color-dark-1;
-          border-bottom: 1px solid $color-dark-1;
-          width: .83rem;
-          height: .83rem;
-          transform: rotate(45deg);
-          background-color: transparent;
-          position: absolute;
-          right: 1.3rem;
-          bottom: 1rem;
-
-          &:hover { cursor: pointer }
-        }
-
-        &__counter {
-          display: inline-block;
-          transform: translateX(6rem);
-
-          & span {
-            font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-          }
-        }
-      }
-    }
-
-    &__btn {
-      margin-top: 4rem;
-      margin-left: .5rem;
-    }
-
-    // декоративные линии для мобильной версии
-    @media only screen and (max-width: 25.8em) { // 414px / 16 = 25.8
+      // декоративные линии для мобильной версии
       &::before {
         content:"";
         width:2px;
@@ -116,12 +77,88 @@
         bottom: -6rem;
       }
     }
+    @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
+      // текст для мобильной версии
+      &__h2--mob { font-size: 1rem; }
+      &__h3--mob { font-size: 2.5rem; }
+      &__text { font-size: .9rem; }
+    }
+
+    &__text {
+      line-height: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    &__pick {
+      display: flex;
+
+      & .pick-color {
+        display: inline-block;
+        display: flex;
+        width: 30.12rem;
+        height: 3rem;
+        border-bottom: 1px solid $color-dark-1;
+        padding: 0 1.3rem;
+        position: relative;
+
+        &__text {
+          font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
+          font-size: 1.2rem;
+          line-height: 2.6rem;
+          letter-spacing: .4rem;
+          text-transform: uppercase;
+          @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
+            font-size: 1rem;
+          }
+        }
+
+        &__triangle-btn {
+          display: inline-block;
+          border-right: 1px solid $color-dark-1;
+          border-bottom: 1px solid $color-dark-1;
+          width: .83rem;
+          height: .83rem;
+          transform: rotate(45deg);
+          background-color: transparent;
+          position: absolute;
+          right: 1.3rem;
+          bottom: 1rem;
+
+          &:hover { cursor: pointer }
+        }
+
+        &__counter {
+          display: inline-block;
+          transform: translateX(4rem);
+          @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+            & button:focus {
+              background-color: $color-brown-1;
+            }
+          }
+          & span {
+            font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin: 0 1rem;
+          }
+        }
+      }
+    }
+
+    &__btn {
+      margin-top: 4rem;
+      margin-left: .5rem;
+      @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+        margin: 4rem auto;
+      }
+    }
   }
 
-  & .flex {
+  & .flex { // контейнер для &__right-block
     display: flex;
     justify-content: flex-end;
     padding-right: 9rem;
+    @media only screen and (max-width: 93.75em) { padding-right: 6rem; } // 1500 / 16 = 93.75
   }
 
   &__right-block {
@@ -130,18 +167,38 @@
     border: 1px solid red;
     width: 62rem;
     height: 64.97rem;
-    overflow: hidden;
 
     &__picture > img {
       width: 42.23rem;
     }
 
-    &__menu {
+    @media only screen and (max-width: 93.75em) { width: 52rem; } // 1500 / 16 = 93.75
+    @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+      position: absolute;
+      // transform: translate(-45rem, 10rem);
+      left: -15rem;
+      width: 29.97rem;
+      height: 49.84rem;
+      text-align: center;
+      &__picture > img {
+        width: 29.97rem;
+      }
+    }
+
+    &__menu { // контейнер меню
       position: absolute;
       top: 8.5rem;
       right: 0;
 
-      &__button {
+      @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+        right: -.7rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        top: 22rem;
+      }
+
+      &__button { // кнопки с нижним подчеркиванием
         font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
         font-size: 1rem;
         letter-spacing: .4rem;
@@ -168,6 +225,21 @@
           border-bottom: 1px solid $color-dark-1;
         }
 
+        // в мобильной версии от кнопок остались одни подчеркивания
+        @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+          width: 1.5rem;
+          border-bottom: 1px solid $color-dark-1;
+          height: 1.5rem;
+          padding-top: 0;
+          &--focused {
+            width: 3rem;
+          }
+          
+          & span {
+            color: transparent;
+          }
+        }
+
       }
     }
   }
@@ -176,6 +248,10 @@
     border: 1px solid blue;
     width: 100%;
     padding-top: 17rem;
+
+    @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+      display: none;
+    }
 
     &__left {
       display: inline-block;
@@ -191,6 +267,7 @@
       border: 3px dashed green;
       & button {
         margin-right: 8.5rem;
+        @media only screen and (max-width: 93.75em) { margin-right: 6rem; } // 1500 / 16 = 93.75
       }
     }
   }
@@ -199,9 +276,17 @@
     position: absolute;
     width: 114.2rem;
     height: 86.42rem;
-    left: 5rem;
+    // left: 5rem;
+    transform: translateX(5rem);
     top: 4.63rem;
     background-color: rgba($color-brown-1, .9);
     z-index: -20;
+
+    @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+      // transform: translate(-44.6%);
+      right: 49%;
+      transform: translateX(-.1rem);
+      height: 57.8rem;
+    }
   }
 }
