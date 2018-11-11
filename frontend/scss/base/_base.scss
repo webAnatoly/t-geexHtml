@@ -20,6 +20,10 @@ html {
   но оно лежит в этой папке потому-что оно используется
   не только для шрифтов, но и для маржинов/паддингов и других размерностей устанавливаемых через rem */
   box-sizing: border-box;
+
+  @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
+    font-size: 55%;
+  }
 }
 
 a,
@@ -38,7 +42,6 @@ button::-moz-focus-inner { outline: 0; border: 0;}
   width: 168rem;
   min-height: 100rem;
   margin: auto;
-  border: 1px solid red;
 
   @media only screen and (max-width: 105em) {
     width: 100%;

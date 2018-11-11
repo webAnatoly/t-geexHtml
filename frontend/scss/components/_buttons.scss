@@ -78,6 +78,10 @@
   border-radius: 50%;
   border: 1px solid $color-dark-1;
   background-color: transparent;
+  @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
+    width: 2.3rem;
+    height: 2.3rem;
+  }
 
   &:hover {
     border: 1px solid $color-white-1;

@@ -1,5 +1,4 @@
 .section-1 {
-  border: 1px solid blue;
   height: 95.7rem;
   width: inherit;
   position: relative;
@@ -8,9 +7,6 @@
     height: 137rem;
   }
 
-  // временные рамки
-  & .col-1-of-2 { border: 3px dashed red; }
-
   &::before { // через псевдоэлемент вставил фоновый ресунок, чтобы фильтр можно было применить
     content: "";
     position: absolute;
@@ -18,9 +14,8 @@
     left: 0;
     width: 114.2rem;
     height: 95.8rem;
-    background-image: url(./../assets/img/png/rectangle_4.png);
+    background-image: url(./../assets/img/png/rectangle_4NO.png);
     background-repeat: no-repeat;
-    // background-size: 100% auto;
     background-size: cover;
     filter: grayscale(100%);
 
@@ -43,7 +38,6 @@
   }
 
   &__left-block {
-    border: 1px solid red;
     width: 45rem;
     min-height: 45rem;
     transform: translate(14rem, 30rem);
@@ -54,7 +48,8 @@
       position: absolute;
       transform: translate(0, 0);
       top: 79rem;
-      left: calc((100vw / 2) - (45rem / 2));
+      width: 60rem;
+      left: calc((100vw / 2) - (60rem / 2));
       text-align: center;
 
       // декоративные линии для мобильной версии
@@ -77,10 +72,20 @@
         bottom: -6rem;
       }
     }
+
+    @media only screen and (max-width: 40.62em) { // 650 / 16 = 40.62
+      width: 90vw;
+      transform: translate(0, 0);
+      position: absolute;
+      left: calc(100vw/2 - 90vw/2);
+      margin: 0;
+      // padding: 0 1rem;
+    }
+
     @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
       // текст для мобильной версии
       &__h2--mob { font-size: 1rem; }
-      &__h3--mob { font-size: 2.5rem; }
+      &__h3--mob { font-size: 2.5rem; letter-spacing: .8rem; }
       &__text { font-size: .9rem; }
     }
 
@@ -91,16 +96,30 @@
 
     &__pick {
       display: flex;
+      @media only screen and (max-width: 85em) { // 1360 / 16 = 85
+        justify-content: center;
+      }
+      @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
+        justify-content: space-between;
+      }
+
 
       & .pick-color {
         display: inline-block;
-        display: flex;
         width: 30.12rem;
         height: 3rem;
         border-bottom: 1px solid $color-dark-1;
         padding: 0 1.3rem;
         position: relative;
-
+        @media only screen and (max-width: 85em) { // 1360 / 16 = 85
+          width: 25rem;
+          margin-right: 2.5rem;
+        }
+        @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
+          display: flex;
+          align-items: center;
+          width: 20rem;
+        }
         &__text {
           font-family: "Futura PT Demi", "Vrinda", "Verdana", "Arial", sans-serif;
           font-size: 1.2rem;
@@ -109,6 +128,7 @@
           text-transform: uppercase;
           @media only screen and (max-width: 26.25em) { // 420 / 16 = 26.25
             font-size: 1rem;
+            line-height: 1rem;
           }
         }
 
@@ -131,6 +151,7 @@
           display: inline-block;
           transform: translateX(4rem);
           @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
+            transform: translateX(0);
             & button:focus {
               background-color: $color-brown-1;
             }
@@ -164,7 +185,6 @@
   &__right-block {
     position: relative;
     transform: translateY(12rem);
-    border: 1px solid red;
     width: 62rem;
     height: 64.97rem;
 
@@ -175,8 +195,7 @@
     @media only screen and (max-width: 93.75em) { width: 52rem; } // 1500 / 16 = 93.75
     @media only screen and (max-width: 85em) { // 1360px / 16 = 85em
       position: absolute;
-      // transform: translate(-45rem, 10rem);
-      left: -15rem;
+      left: calc((100vw / 2) - (29.97rem / 2));
       width: 29.97rem;
       height: 49.84rem;
       text-align: center;
@@ -245,7 +264,6 @@
   }
 
   &__menu {
-    border: 1px solid blue;
     width: 100%;
     padding-top: 17rem;
 
@@ -255,7 +273,6 @@
 
     &__left {
       display: inline-block;
-      border: 3px dashed green;
       transform: translateX(14rem);
 
       & button { margin-right: 5rem; }
@@ -264,7 +281,6 @@
     &__right {
       display: flex;
       justify-content: flex-end;
-      border: 3px dashed green;
       & button {
         margin-right: 8.5rem;
         @media only screen and (max-width: 93.75em) { margin-right: 6rem; } // 1500 / 16 = 93.75
